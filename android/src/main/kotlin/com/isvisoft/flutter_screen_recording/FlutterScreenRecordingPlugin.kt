@@ -54,7 +54,6 @@ class FlutterScreenRecordingPlugin :
     private var mMessage = "Your screen is being recorded"
     private var recordAudio: Boolean? = false;
     private val SCREEN_RECORD_REQUEST_CODE = 333
-    private var recordingCounter = 0
 
     private lateinit var _result: Result
 
@@ -230,8 +229,7 @@ class FlutterScreenRecordingPlugin :
                 } else {
                     pluginBinding!!.applicationContext.cacheDir?.absolutePath
                 }
-                recordingCounter++
-                mFileName += "/${videoName}_$recordingCounter.mp4"
+                mFileName += "/${videoName}.mp4"
             } catch (e: IOException) {
                 println("Error creating name")
                 return
